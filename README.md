@@ -1,20 +1,20 @@
-# 🤖 AI Policy Compliance Assistant  
+#AI Policy Compliance Assistant  
 *A local GenAI-powered app using LangChain + Streamlit + Ollama to compare and analyze data protection laws.*
 
 ---
 
-## 🧩 Overview
+## Overview
 This project uses **Retrieval-Augmented Generation (RAG)** to analyze and compare global data protection laws, such as:
 
-- 🇪🇺 **GDPR (EU General Data Protection Regulation)**
-- 🇮🇳 **India’s Digital Personal Data Protection Act (DPDP 2023)**
-- 🌍 **UNESCO AI Ethics Guidelines**
+- **GDPR (EU General Data Protection Regulation)**
+- **India’s Digital Personal Data Protection Act (DPDP 2023)**
+-  **UNESCO AI Ethics Guidelines**
 
 It runs completely **offline** using local language models (via Ollama) and features a Streamlit web app interface.
 
 ---
 
-## 🧠 Features
+## Features
 ✅ Compare legal documents and AI ethics frameworks  
 ✅ Retrieve and analyze relevant sections from PDFs  
 ✅ Generate structured, sectioned responses (Overview, Similarities, Differences, Summary)  
@@ -23,7 +23,7 @@ It runs completely **offline** using local language models (via Ollama) and feat
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 | Component | Technology |
 |------------|-------------|
 | Frontend | Streamlit |
@@ -35,10 +35,10 @@ It runs completely **offline** using local language models (via Ollama) and feat
 
 ---
 
-## 🚀 How to Run Locally
+##  How to Run Locally
 Follow these steps:
 
-### 1️⃣ Clone this repository
+###  Clone this repository
 ```bash
 git clone https://github.com/YOUR_USERNAME/AI-Policy-Compliance-Assistant.git
 cd AI-Policy-Compliance-Assistant

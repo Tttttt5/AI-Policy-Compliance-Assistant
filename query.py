@@ -4,13 +4,13 @@ from langchain.chains import RetrievalQA
 from langchain_community.llms import Ollama
 
 # -------------------------------
-# Step 1️⃣ — Load local embeddings & Chroma vector database
+# Step 1️ — Load local embeddings & Chroma vector database
 # -------------------------------
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 db = Chroma(persist_directory="chroma_store", embedding_function=embeddings)
 
 # -------------------------------
-# Step 2️⃣ — Advanced Retriever for diverse & relevant chunks
+# Step 2️ — Advanced Retriever for diverse & relevant chunks
 # -------------------------------
 retriever = db.as_retriever(
     search_type="mmr", 
@@ -18,44 +18,44 @@ retriever = db.as_retriever(
 )
 
 # -------------------------------
-# Step 3️⃣ — Your question
+# Step 3️ — Your question
 # -------------------------------
 question = "Compare GDPR and India's DPDP Act in terms of user consent and data retention."
 
 # -------------------------------
-# Step 4️⃣ — Retrieve relevant chunks
+# Step 4️ — Retrieve relevant chunks
 # -------------------------------
 docs = retriever.get_relevant_documents(question)
 
 # Make sure chunks are from more than one document
 sources = {d.metadata.get("source", "unknown") for d in docs}
 if len(sources) < 2:
-    print("⚠️ Retrieved chunks are mostly from one document. Expanding search...")
+    print(" Retrieved chunks are mostly from one document. Expanding search...")
     more_docs = db.similarity_search(question, k=5)
     docs.extend(more_docs)
     sources = {d.metadata.get("source", "unknown") for d in docs}
 
 # -------------------------------
-# Step 5️⃣ — Preview retrieved chunks (for debugging)
+# Step 5️ — Preview retrieved chunks (for debugging)
 # -------------------------------
-print(f"\n🔍 Retrieved {len(docs)} chunks for question:\n{question}\n")
+print(f"\n Retrieved {len(docs)} chunks for question:\n{question}\n")
 for i, d in enumerate(docs[:5]):
     print(f"--- Chunk {i+1} (from {d.metadata.get('source', 'unknown')}) ---")
     print(d.page_content[:400], "\n")
 
 # -------------------------------
-# Step 6️⃣ — Connect to your local LLM (Ollama)
+# Step 6️ — Connect to your local LLM (Ollama)
 # -------------------------------
-# ⚙️ Tip: Use a small model like gemma:2b or phi3:mini for 8GB RAM systems
+#  Tip: Use a small model like gemma:2b or phi3:mini for 8GB RAM systems
 llm = Ollama(model="gemma:2b", temperature=0.2)
 
 # -------------------------------
-# Step 7️⃣ — Build a retrieval + reasoning chain
+# Step 7️ — Build a retrieval + reasoning chain
 # -------------------------------
 qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
 # -------------------------------
-# Step 8️⃣ — Build a smart comparison prompt
+# Step 8️ — Build a smart comparison prompt
 # -------------------------------
 context_text = "\n\n".join(
     [f"From {d.metadata.get('source', 'unknown')}:\n{d.page_content[:800]}" for d in docs[:6]]
@@ -74,13 +74,13 @@ compare_prompt = (
 )
 
 # -------------------------------
-# Step 9️⃣ — Run the comparison
+# Step 9️ — Run the comparison
 # -------------------------------
-print("\n🤖 Generating AI answer, please wait...\n")
+print("\n Generating AI answer, please wait...\n")
 answer = qa.run(compare_prompt)
 
 # -------------------------------
-# Step 🔟 — Show final result
+# Step 10 — Show final result
 # -------------------------------
 print("❓ Question:", question)
 print("💡 Answer:", answer)

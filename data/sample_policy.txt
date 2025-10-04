@@ -1,0 +1,3 @@
+Our company collects customer names, emails, and location data.
+We keep this data for 10 years for marketing purposes.
+We do not share customer data with third parties.

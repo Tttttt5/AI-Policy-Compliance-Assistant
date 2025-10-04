@@ -1,4 +1,4 @@
-#AI Policy Compliance Assistant  
+# AI Policy Compliance Assistant  
 *A local GenAI-powered app using LangChain + Streamlit + Ollama to compare and analyze data protection laws.*
 
 ---
@@ -15,11 +15,11 @@ It runs completely **offline** using local language models (via Ollama) and feat
 ---
 
 ## Features
-✅ Compare legal documents and AI ethics frameworks  
-✅ Retrieve and analyze relevant sections from PDFs  
-✅ Generate structured, sectioned responses (Overview, Similarities, Differences, Summary)  
-✅ Fully offline — no OpenAI API required  
-✅ Clean and interactive web UI with Streamlit  
+Compare legal documents and AI ethics frameworks  
+Retrieve and analyze relevant sections from PDFs  
+Generate structured, sectioned responses (Overview, Similarities, Differences, Summary)  
+Fully offline — no OpenAI API required  
+Clean and interactive web UI with Streamlit  
 
 ---
 
